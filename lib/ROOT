@@ -1,0 +1,127 @@
+(*
+ * Copyright 2018, Data61/CSIRO
+ *
+ * This software may be distributed and modified according to the terms of
+ * the BSD 2-Clause license. Note that NO WARRANTY is provided.
+ * See "LICENSE_BSD2.txt" for details.
+ *
+ * @TAG(DATA61_BSD)
+ *)
+
+chapter Lib
+
+session Lib (lib) = Word_Lib +
+  sessions
+    "HOL-Library"
+    "HOL-Eisbach"
+  theories
+    Lib
+    Apply_Trace_Cmd
+    AddUpdSimps
+    EmptyFailLib
+    List_Lib
+    SubMonadLib
+    Simulation
+    MonadEq
+    SimpStrategy
+    Extract_Conjunct
+    GenericLib
+    ProvePart
+    Corres_Adjust_Preconds
+    AutoLevity_Base
+    Requalify
+    Value_Abbreviation
+    Eisbach_Methods
+    HaskellLib_H
+    Eval_Bool
+    Bisim_UL
+    Extend_Locale
+    Solves_Tac
+    Crunch
+    Crunch_Instances_NonDet
+    Crunch_Instances_Trace
+    StateMonad
+    Corres_UL
+    Find_Names
+    LemmaBucket
+    Try_Methods
+    ListLibLemmas
+    Time_Methods_Cmd
+    Apply_Debug
+    MonadicRewrite
+    HaskellLemmaBucket
+    "ml-helpers/MkTermAntiquote"
+    "ml-helpers/TermPatternAntiquote"
+    "ml-helpers/TacticAntiquotation"
+    "ml-helpers/MLUtils"
+    FP_Eval
+    "subgoal_focus/Subgoal_Methods"
+    Insulin
+    ExtraCorres
+    NICTATools
+    BCorres_UL
+    Qualify
+    LexordList
+    Rule_By_Method
+    Defs
+    AutoLevity_Hooks
+    Distinct_Cmd
+    Match_Abbreviation
+    ShowTypes
+    SpecValid_R
+    EquivValid
+    SplitRule
+    DataMap
+    FastMap
+    RangeMap
+    Corres_Method
+    Conjuncts
+    DetWPLib
+    Guess_ExI
+    GenericTag
+
+    
+    NonDetMonadLemmaBucket
+    "Monad_WP/WhileLoopRules"
+    "Monad_WP/TraceMonad"
+    "Monad_WP/OptionMonadND"
+    "Monad_WP/OptionMonadWP"
+    "Monad_WP/Strengthen_Demo"
+    "Monad_WP/TraceMonadLemmas"
+    "Monad_WP/wp/WPBang"
+    "Monad_WP/wp/WPFix"
+    "Monad_WP/wp/Eisbach_WP"
+    "Monad_WP/wp/WPI"
+    "Monad_WP/wp/WPC"
+    "Monad_WP/wp/WPEx"
+    "Monad_WP/wp/WP_Pre"
+    "Monad_WP/wp/WP"
+    "Monad_WP/Datatype_Schematic"
+    "Monad_WP/WhileLoopRulesCompleteness"
+    "Monad_WP/Strengthen"
+    "Monad_WP/OptionMonad"
+    "Monad_WP/TraceMonadVCG"
+    "Monad_WP/NonDetMonadVCG"
+    "Monad_WP/NonDetMonad"
+    "Monad_WP/NonDetMonadLemmas"
+
+session CLib (lib) in clib = CParser +
+  sessions
+    "HOL-Library"
+    "HOL-Statespace"
+    "HOL-Eisbach"
+    "Simpl-VCG"
+    Lib
+  theories
+    Corres_UL_C
+    CCorresLemmas
+    CCorres_Rewrite
+    Simpl_Rewrite
+    MonadicRewrite_C
+    CTranslationNICTA
+    LemmaBucket_C
+    SIMPL_Lemmas
+    SimplRewrite
+    TypHeapLib
+    BitFieldProofsLib
+    XPres
