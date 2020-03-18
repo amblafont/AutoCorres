@@ -274,7 +274,8 @@ let
   val (thm, peephole_opt_trace) =
       AutoCorresTrace.fconv_rule_maybe_traced ctxt
           (l1conv (Simplifier.rewrite (put_simpset HOL_basic_ss ctxt addsimps
-                     (if do_opt then Utils.get_rules ctxt @{named_theorems L1opt} else []))))
+                     (if do_opt then Utils.get_rules ctxt @{named_theorems L1opt} else 
+                                     Utils.get_rules ctxt @{named_theorems L1_light_opt}))))
           thm trace_opt
 
   (* Rewrite exceptions. *)

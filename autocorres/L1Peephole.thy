@@ -14,8 +14,17 @@ theory L1Peephole
 imports L1Defs
 begin
 
-(* Simplification rules run after L1. *)
-named_theorems L1opt
+(* Simplification rules run after L1.
+
+L1_light_opt is run even when optimizations are disabled. 
+L1_light_opt rewrites L1_set_to_pred_def x and x \<in> UNIV as True,
+
+This light optimization is necessary because the L2 compilation does not
+ know how to deal with L1_guard L1_set_to_pred and thus yields a fail
+if not optimizing.
+ *)
+named_theorems L1opt 
+named_theorems L1_light_opt
 
 lemma L1_seq_assoc [L1opt]: "(L1_seq (L1_seq X Y) Z) = (L1_seq X (L1_seq Y Z))"
   apply (clarsimp simp: L1_seq_def bindE_assoc)
@@ -145,7 +154,7 @@ lemma L1_while_false [L1opt]:
 
 declare ucast_id [L1opt]
 declare scast_id [L1opt]
-declare L1_set_to_pred_def [L1opt]
+declare L1_set_to_pred_def [L1opt, L1_light_opt]
 
 (*
  * The following sets of rules are used to simplify conditionals,
@@ -163,7 +172,7 @@ lemma in_set_if_then [L1opt]: "(s \<in> (if P then A else B)) = (if P then (s \<
   done
 
 declare empty_iff [L1opt]
-declare UNIV_I [L1opt]
+declare UNIV_I [L1opt, L1_light_opt]
 declare singleton_iff [L1opt]
 declare if_simps [L1opt]
 declare simp_thms [L1opt]
